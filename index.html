@@ -81,6 +81,7 @@
             color: rgb(1 181 214);
             text-align: center;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             background-color: rgba(255, 255, 255, 0.9);
@@ -280,7 +281,8 @@
                 <div class="day-card">
                     <img src="www.jpg" class="bg" alt="Bride Image" style="width: 100%; height: auto;">
                     <div class="message">
-                        שבע שבתות שבתות תמימות!
+                        ⏳💍 שבע שבתות שבתות תמימות!  
+                        <p style="font-size: 10px; color: #f39c12;">ואת כלה! 👰🎉</p>
                     </div>
                     <canvas></canvas>
                 </div>
@@ -291,7 +293,11 @@
                 <div class="day-card">
                     <img src="www.jpg" class="bg" class="bg" alt="Bride Image" style="width: 100%; height: auto;">
                     <div class="message">
-                        שושנה בין החוחים</div>
+                        🌹🌹🌹🌹<br>
+                        שושנה בין החוחים 🌵  
+                        <p style="font-size: 10px; color: #f39c12;">החוחים זה לא אנחנו, כן? 😉</p>
+                        
+                    </div>
                     <canvas></canvas>
                 </div>
             </div>
@@ -300,7 +306,9 @@
                 <div class="day-card">
                     <img src="www.jpg" class="bg" class="bg" alt="Bride Image" style="width: 100%; height: auto;">
                     <div class="message">
-                        אחראית השקט במחוז</div>
+                         אחראית השקט במחוז <br>🔇🤫  
+                        <p style="font-size: 10px; color: #f39c12;">יודעת מתי לשתוק... 🤐🤐  </p>
+                    </div>
                     <canvas></canvas>
                 </div>
             </div>
@@ -309,7 +317,9 @@
                 <div class="day-card">
                     <img src="www.jpg" class="bg" class="bg" alt="Bride Image" style="width: 100%; height: auto;">
                     <div class="message">
-                        ש-ו-ש-נ-ה
+                        🎤 🎶 ש-ו-ש-נ-ה! <br>
+                         ש-ו-ש-נ-ה!   
+                        <p style="font-size: 10px; color: #f39c12;">אולם שלם מריע בהתלהבות... 😍🙌</p>
                     </div>
                     <canvas></canvas>
                 </div>
@@ -920,13 +930,13 @@
 
                 let fontSize;
                 if (textLength < 30) {
-                    fontSize = 16;
+                    fontSize = 20;
                 } else if (textLength < 60) {
-                    fontSize = 15;
+                    fontSize = 18;
                 } else if (textLength < 100) {
-                    fontSize = 13;
+                    fontSize = 15;
                 } else {
-                    fontSize = 12;
+                    fontSize = 14;
                 }
 
                 messageElement.style.fontSize = fontSize + 'px';
