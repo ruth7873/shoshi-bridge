@@ -7,12 +7,13 @@
     <title>עוד מ"ט אתם בשחמט</title>
     <link rel="icon" href="c.jpg" type="image/x-icon">
     <style>
-        @font-face{
-    font-family: "Miri DL v2 AAA";    
-    font-style: normal;
-    font-weight: normal;
-    src: url(Miri\ Medium.ttf) format("openType");
-}
+        @font-face {
+            font-family: "Miri DL v2 AAA";
+            font-style: normal;
+            font-weight: normal;
+            src: url(Miri\ Medium.ttf) format("openType");
+        }
+
         body {
             direction: rtl;
             font-family: 'Miri DL v2 AAA';
@@ -71,15 +72,13 @@
 
         .message {
             position: absolute;
-
-
             top: 10px;
             left: 10px;
             right: 10px;
             bottom: 10px;
             font-size: 12px;
             visibility: hidden;
-
+            color: rgb(1 181 214);
             text-align: center;
             display: flex;
             align-items: center;
@@ -100,22 +99,21 @@
         }
 
         .day-card>img {
+            position: absolute;
+            visibility: hidden;
 
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 120%;
+            height: 120%;
             object-fit: cover;
-            z-index: 1;
+            /* z-index: 1; */
             /* Ensure the image is on top */
             border-radius: 10px;
         }
 
-        .bg {
-            opacity: 0.3;
-        }
-
         .shabat {
             position: absolute;
+            display: block;
         }
 
         .day-card>h2 {
@@ -136,16 +134,15 @@
             visibility: visible;
         }
 
-        .day-card.revealed img {
-    display: block;
-    opacity: 0.3; /* תן שקיפות קלה כדי שהטקסט יהיה קריא */
-}
+        .day-card.revealed .bg {
+            visibility: visible;
+        }
 
         .title {
             font-size: 36px;
             text-align: center;
             margin-bottom: 20px;
-            color: #7c4d01;
+            color: #c45648;
         }
 
         .last-day {
@@ -158,19 +155,14 @@
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            /* width: 550px; */
-            /* max-width: 1000px; */
-            /* height: 500px; */
-            /* max-height: 800px; */
             background-color: rgba(255, 255, 255, 0.8);
             border-radius: 10px;
-            background-image: url("end.jpg");
+            background-image: url("shoshi.png");
             background-size: cover;
-            margin-bottom: 200px;
+            margin-bottom: 100px;
             width: 800px;
-            height: 800px;
+            height: 850px;
         }
 
         .last-day h1 {
@@ -185,7 +177,6 @@
         }
 
         .last-day img {
-
             margin-top: 20px;
         }
 
@@ -204,10 +195,66 @@
             justify-content: flex-end;
         }
 
-        .shabat-card canvas {
-    display: none;
-}
+        .shabat-card {
+            position: relative;
+            width: 100px;
+            height: 150px;
+            background-color: #fff;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 10px;
+            color: black;
+        }
 
+        .shabat-card canvas {
+            display: none;
+        }
+
+        .shabat-card img {
+            display: block;
+            left: 0;
+            width: 120%;
+            height: 120%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .last-day.revealed {
+            animation: finalReveal 1s ease-in-out;
+            width: 90%;
+        }
+
+        @keyframes finalReveal {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1.05);
+            }
+        }
+
+        .last-day.revealed .message-last-day {
+            animation: fadeInScale 0.8s ease-out;
+        }
+
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.5);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
     </style>
 
     <!-- Google tag (gtag.js) -->
@@ -222,10 +269,8 @@
 </head>
 
 <body>
-    <h1 class="title" style="margin-bottom: 0px; padding: 0px;">בעוד שבע שבועות את ב</h1>
-    <h2 style="color: rgb(71, 71, 255); font-size: 48px; margin-top: 0px; padding: 0px;">אי של שלווה!</h2>
-    <!-- <h2>📅 בכל יום גרדי את הכרטיס המתאים 🎟️✨<br>
-    💡 גלי משפט השראה או טיפ לחיים! 🌟❤️</h2> -->
+    <h1 class="title" style="margin-bottom: 0px; padding: 0px;">בעוד שבע שבועות את ב---</h1>
+    <h2 style="    color: rgb(3 118 139); font-size: 55px; margin-top: 0px; padding: 0px;">אי של שלווה!</h2>
     <div class="calendar">
         <!-- Week 1 -->
         <div class="week1">
@@ -235,7 +280,7 @@
                 <div class="day-card">
                     <img src="www.jpg" class="bg" alt="Bride Image" style="width: 100%; height: auto;">
                     <div class="message">
-                        שבע שבתות שבתות תמימות
+                        שבע שבתות שבתות תמימות!
                     </div>
                     <canvas></canvas>
                 </div>
@@ -246,8 +291,7 @@
                 <div class="day-card">
                     <img src="www.jpg" class="bg" class="bg" alt="Bride Image" style="width: 100%; height: auto;">
                     <div class="message">
-                        לעולם אל תסתכל על אדם מלמעלה
-                        אלא אם אתה עוזר לו לקום.</div>
+                        שושנה בין החוחים</div>
                     <canvas></canvas>
                 </div>
             </div>
@@ -256,9 +300,7 @@
                 <div class="day-card">
                     <img src="www.jpg" class="bg" class="bg" alt="Bride Image" style="width: 100%; height: auto;">
                     <div class="message">
-                        אנשים גדולים תמיד יתנו לך את
-                        ההרגשה שגם אתה מסוגל להיות
-                        גדול </div>
+                        אחראית השקט במחוז</div>
                     <canvas></canvas>
                 </div>
             </div>
@@ -267,16 +309,14 @@
                 <div class="day-card">
                     <img src="www.jpg" class="bg" class="bg" alt="Bride Image" style="width: 100%; height: auto;">
                     <div class="message">
-                        בשביל להיות 'עושה שלום' חייבים ללכת
-                        3 פסיעות אחורה ולהתכופף גם לימין
-                        וגם לשמאל
+                        ש-ו-ש-נ-ה
                     </div>
                     <canvas></canvas>
                 </div>
             </div>
             <div>
                 <div class="date"></div>
-                <div class="day-card shabat-card">
+                <div class="shabat-card">
                     <img class="shabat" src="shabat.jpg" alt="Shabat Image" style="width: 100%; height: auto;">
                     <img class="shabat" src="shabat.gif" alt="Shabat Image" style="width: 100%; height: 100%;">
                     <canvas></canvas>
@@ -349,7 +389,7 @@
 
             <div>
                 <div class="date"></div>
-                <div class="day-card shabat-card">
+                <div class="shabat-card">
                     <img class="shabat" src="shabat.jpg" alt="Shabat Image" style="width: 100%; height: auto;">
                     <img class="shabat" src="shabat.gif" alt="Shabat Image" style="width: 100%; height: 100%;">
                     <div class="message">
@@ -404,7 +444,7 @@
                     <img src="www.jpg" class="bg" alt="Bride Image" style="width: 100%; height: auto;">
                     <div class="message">
                         הכסיל אומר מה שהוא יודע,
-                        החכם יודע מה שהוא אומר 
+                        החכם יודע מה שהוא אומר
                     </div>
                     <canvas></canvas>
                 </div>
@@ -422,7 +462,7 @@
 
             <div>
                 <div class="date"></div>
-                <div class="day-card shabat-card">
+                <div class="shabat-card">
                     <img class="shabat" src="shabat.jpg" alt="Shabat Image" style="width: 100%; height: auto;">
                     <img class="shabat" src="shabat.gif" alt="Shabat Image" style="width: 100%; height: 100%;">
                     <div class="message">
@@ -498,7 +538,7 @@
 
             <div>
                 <div class="date"></div>
-                <div class="day-card shabat-card">
+                <div class="shabat-card">
                     <img class="shabat" src="shabat.jpg" alt="Shabat Image" style="width: 100%; height: auto;">
                     <img class="shabat" src="shabat.gif" alt="Shabat Image" style="width: 100%; height: 100%;">
                     <div class="message">
@@ -574,7 +614,7 @@
             </div>
             <div>
                 <div class="date"></div>
-                <div class="day-card shabat-card">
+                <div class="shabat-card">
                     <img class="shabat" src="shabat.jpg" alt="Shabat Image" style="width: 100%; height: auto;">
                     <img class="shabat" src="shabat.gif" alt="Shabat Image" style="width: 100%; height: 100%;">
                     <div class="message">
@@ -650,7 +690,7 @@
 
             <div>
                 <div class="date"></div>
-                <div class="day-card shabat-card">
+                <div class="shabat-card">
                     <img class="shabat" src="shabat.jpg" alt="Shabat Image" style="width: 100%; height: auto;">
                     <img class="shabat" src="shabat.gif" alt="Shabat Image" style="width: 100%; height: 100%;">
                     <div class="message">
@@ -727,7 +767,7 @@
             </div>
             <div>
                 <div class="date"></div>
-                <div class="day-card shabat-card">
+                <div class="shabat-card">
                     <img class="shabat" src="shabat.jpg" alt="Shabat Image" style="width: 100%; height: auto;">
                     <img class="shabat" src="shabat.gif" alt="Shabat Image" style="width: 100%; height: 100%;">
                     <div class="message">
@@ -739,7 +779,7 @@
         </div>
         <!-- Week 8 -->
         <div class="week">
-          
+
             <div>
                 <div class="date"></div>
                 <div class="day-card">
@@ -765,116 +805,258 @@
         <div class="card">
             <!-- יום אחרון -->
             <div class="last-day">
+                <div class="message-last-day">
+                    <!-- כאן תוכל להוסיף את ההודעה הסופית -->
+                    <h1>מזל טוב!</h1>
+                    <p>היום הגדול הגיע! 🎉💍</p>
+                </div>
                 <div class="scratch-off">
-                    <canvas id="scratchCanvas" width="500" height="300"></canvas>
+                    <canvas id="scratchCanvas" width="800" height="800"></canvas>
                 </div>
             </div>
         </div>
+
     </div>
     </div>
 
     <script>
+
         document.querySelectorAll('.day-card').forEach(card => {
-    const canvas = card.querySelector('canvas');
-    if (!canvas) return;
-    
-    const ctx = canvas.getContext('2d');
-    canvas.width = card.offsetWidth;
-    canvas.height = card.offsetHeight;
+            const canvas = card.querySelector('canvas');
+            if (!canvas) return;
 
-    const img = new Image();
-    // img.crossOrigin = 'anonymous';
-    img.src = 'aziz.jpg';
-    img.onload = () => {
-        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-    };
+            const ctx = canvas.getContext('2d');
+            canvas.width = card.offsetWidth;
+            canvas.height = card.offsetHeight;
 
-    let isDrawing = false;
-    let scratchedArea = 0;
-    const totalArea = canvas.width * canvas.height;
+            const img = new Image();
+            // img.crossOrigin = 'anonymous';
+            img.src = 'aziz.jpg';
+            img.onload = () => {
+                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            };
 
-    canvas.addEventListener('mousedown', (e) => {
-        isDrawing = true;
-        draw(e);
-    });
+            let isDrawing = false;
+            let scratchedArea = 0;
+            const totalArea = canvas.width * canvas.height;
 
-    canvas.addEventListener('mousemove', draw);
+            canvas.addEventListener('mousedown', (e) => {
+                isDrawing = true;
+                draw(e);
+            });
 
-    canvas.addEventListener('mouseup', () => {
-        isDrawing = false;
-        checkScratchCompletion();
-    });
+            canvas.addEventListener('mousemove', draw);
 
-    canvas.addEventListener('mouseout', () => {
-        isDrawing = false;
-    });
+            canvas.addEventListener('mouseup', () => {
+                isDrawing = false;
+                checkScratchCompletion();
+            });
 
-    // Touch events for mobile
-    canvas.addEventListener('touchstart', (e) => {
-        e.preventDefault();
-        isDrawing = true;
-        const touch = e.touches[0];
-        const rect = canvas.getBoundingClientRect();
-        const x = touch.clientX - rect.left;
-        const y = touch.clientY - rect.top;
-        draw({ clientX: touch.clientX, clientY: touch.clientY });
-    });
+            canvas.addEventListener('mouseout', () => {
+                isDrawing = false;
+            });
 
-    canvas.addEventListener('touchmove', (e) => {
-        e.preventDefault();
-        if (!isDrawing) return;
-        const touch = e.touches[0];
-        draw({ clientX: touch.clientX, clientY: touch.clientY });
-    });
+            // Touch events for mobile
+            canvas.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                isDrawing = true;
+                const touch = e.touches[0];
+                const rect = canvas.getBoundingClientRect();
+                const x = touch.clientX - rect.left;
+                const y = touch.clientY - rect.top;
+                draw({ clientX: touch.clientX, clientY: touch.clientY });
+            });
 
-    canvas.addEventListener('touchend', (e) => {
-        e.preventDefault();
-        isDrawing = false;
-        checkScratchCompletion();
-    });
+            canvas.addEventListener('touchmove', (e) => {
+                e.preventDefault();
+                if (!isDrawing) return;
+                const touch = e.touches[0];
+                draw({ clientX: touch.clientX, clientY: touch.clientY });
+            });
 
-    function draw(e) {
-        if (!isDrawing) return;
+            canvas.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                isDrawing = false;
+                checkScratchCompletion();
+            });
+
+            function draw(e) {
+                if (!isDrawing) return;
+
+                ctx.globalCompositeOperation = 'destination-out';
+                ctx.lineWidth = 20;
+                ctx.lineCap = 'round';
+
+                const rect = canvas.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                ctx.lineTo(x, y);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(x, y);
+
+                scratchedArea += Math.PI * (ctx.lineWidth / 2) * (ctx.lineWidth / 2);
+            }
+
+            function checkScratchCompletion() {
+                const scratchedPercentage = scratchedArea / totalArea;
+                console.log(`Scratched: ${(scratchedPercentage * 100).toFixed(1)}%`); // Debug line
+
+                if (scratchedPercentage > 0.5) {
+                    canvas.style.display = 'none';
+                    card.classList.add('revealed');
+                    adjustTextSize(card);
+                    console.log('Card revealed!'); // Debug line
+                }
+            }
+
+            function adjustTextSize(card) {
+                const messageElement = card.querySelector('.message');
+                if (!messageElement) return;
+
+                const text = messageElement.textContent.trim();
+                const textLength = text.length;
+
+                let fontSize;
+                if (textLength < 30) {
+                    fontSize = 16;
+                } else if (textLength < 60) {
+                    fontSize = 15;
+                } else if (textLength < 100) {
+                    fontSize = 13;
+                } else {
+                    fontSize = 12;
+                }
+
+                messageElement.style.fontSize = fontSize + 'px';
+                messageElement.style.lineHeight = fontSize < 10 ? '1.0' : '1.2';
+
+                // בדיקה נוספת אם עדיין לא נכנס
+                let attempts = 0;
+                while (messageElement.scrollHeight > messageElement.clientHeight && fontSize > 6 && attempts < 10) {
+                    fontSize -= 0.5;
+                    messageElement.style.fontSize = fontSize + 'px';
+                    attempts++;
+                }
+            }
+
+        });
+
+        // הוסף את הקוד הזה אחרי הקוד הקיים של הכרטיסים הרגילים
+    </script>
+
+    <script>
+        // Handle the last day card
+        const lastDayCard = document.querySelector('.last-day');
+        const scratchCanvas = document.getElementById('scratchCanvas');
+        console.log("runnnn");
         
-        ctx.globalCompositeOperation = 'destination-out';
-        ctx.lineWidth = 20;
-        ctx.lineCap = 'round';
+        if (lastDayCard && scratchCanvas) {
+            const ctx = scratchCanvas.getContext('2d');
 
-        const rect = canvas.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+            // Set canvas size to match the container
+            scratchCanvas.width = 800;
+            scratchCanvas.height = 800;
 
-        ctx.lineTo(x, y);
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.moveTo(x, y);
+            const img = new Image();
+            img.src = 'end.jpg'; // או תמונה אחרת שתרצה
+            img.onload = () => {
+                ctx.drawImage(img, 0, 0, scratchCanvas.width, scratchCanvas.height);
+            };
 
-        scratchedArea += Math.PI * (ctx.lineWidth / 2) * (ctx.lineWidth / 2);
-    }
+            let isDrawing = false;
+            let scratchedArea = 0;
+            const totalArea = scratchCanvas.width * scratchCanvas.height;
 
-    function checkScratchCompletion() {
-        const scratchedPercentage = scratchedArea / totalArea;
-        console.log(`Scratched: ${(scratchedPercentage * 100).toFixed(1)}%`); // Debug line
+            // Mouse events
+            scratchCanvas.addEventListener('mousedown', (e) => {
+                isDrawing = true;
+                drawOnLastCard(e);
+            });
 
-        if (scratchedPercentage > 0.3) {
-            canvas.style.display = 'none';
-            card.classList.add('revealed');
-            console.log('Card revealed!'); // Debug line
+            scratchCanvas.addEventListener('mousemove', drawOnLastCard);
+
+            scratchCanvas.addEventListener('mouseup', () => {
+                isDrawing = false;
+                checkLastCardCompletion();
+            });
+
+            scratchCanvas.addEventListener('mouseout', () => {
+                isDrawing = false;
+            });
+
+            // Touch events
+            scratchCanvas.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                isDrawing = true;
+                const touch = e.touches[0];
+                drawOnLastCard({ clientX: touch.clientX, clientY: touch.clientY });
+            });
+
+            scratchCanvas.addEventListener('touchmove', (e) => {
+                e.preventDefault();
+                if (!isDrawing) return;
+                const touch = e.touches[0];
+                drawOnLastCard({ clientX: touch.clientX, clientY: touch.clientY });
+            });
+
+            scratchCanvas.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                isDrawing = false;
+                checkLastCardCompletion();
+            });
+
+            function drawOnLastCard(e) {
+                if (!isDrawing) return;
+
+                ctx.globalCompositeOperation = 'destination-out';
+                ctx.lineWidth = 40; // קו יותר עבה לכרטיס הגדול
+                ctx.lineCap = 'round';
+
+                const rect = scratchCanvas.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                ctx.lineTo(x, y);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(x, y);
+
+                // הוסף לשטח הנגרד
+                scratchedArea += Math.PI * (ctx.lineWidth / 2) * (ctx.lineWidth / 2);
+            }
+
+            function checkLastCardCompletion() {
+                const scratchedPercentage = scratchedArea / totalArea;
+                console.log(`Last card scratched: ${(scratchedPercentage * 100).toFixed(1)}%`);
+
+                if (scratchedPercentage > 0.6) {
+                    scratchCanvas.style.display = 'none';
+                    lastDayCard.classList.add('revealed');
+                    console.log('Last card revealed!');
+
+                    // אפקט מיוחד לכרטיס האחרון
+                    setTimeout(() => {
+                        lastDayCard.style.transform = 'scale(1.05)';
+                        lastDayCard.style.transition = 'transform 0.5s ease';
+                    }, 100);
+                }
+            }
         }
-    }
-});
+
     </script>
 
     <script>
         // מערך של תאריכים
         dates = [
-    "כ\"א סיון", "כ\"ב סיון", "כ\"ג סיון", "כ\"ד סיון", "כ\"ה סיון", "כ\"ו סיון", "כ\"ז סיון", "כ\"ח סיון", "כ\"ט סיון",
-    "ל' סיון",
-    "א' תמוז", "ב' תמוז", "ג' תמוז", "ד' תמוז", "ה' תמוז", "ו' תמוז", "ז' תמוז", "ח' תמוז", "ט' תמוז", "י' תמוז",
-    "י\"א תמוז", "י\"ב תמוז", "י\"ג תמוז", "י\"ד תמוז", "ט\"ו תמוז", "ט\"ז תמוז", "י\"ז תמוז", "י\"ח תמוז", "י\"ט תמוז", "כ' תמוז",
-    "כ\"א תמוז", "כ\"ב תמוז", "כ\"ג תמוז", "כ\"ד תמוז", "כ\"ה תמוז", "כ\"ו תמוז", "כ\"ז תמוז", "כ\"ח תמוז", "כ\"ט תמוז",
-    "א' אב", "ב' אב", "ג' אב", "ד' אב", "ה' אב", "ו' אב", "ז' אב", "ח' אב", "ט' אב", "י' אב", "י\"א אב"
-]
+            "כ\"א סיון", "כ\"ב סיון", "כ\"ג סיון", "כ\"ד סיון", "כ\"ה סיון", "כ\"ו סיון", "כ\"ז סיון", "כ\"ח סיון", "כ\"ט סיון",
+            "ל' סיון",
+            "א' תמוז", "ב' תמוז", "ג' תמוז", "ד' תמוז", "ה' תמוז", "ו' תמוז", "ז' תמוז", "ח' תמוז", "ט' תמוז", "י' תמוז",
+            "י\"א תמוז", "י\"ב תמוז", "י\"ג תמוז", "י\"ד תמוז", "ט\"ו תמוז", "ט\"ז תמוז", "י\"ז תמוז", "י\"ח תמוז", "י\"ט תמוז", "כ' תמוז",
+            "כ\"א תמוז", "כ\"ב תמוז", "כ\"ג תמוז", "כ\"ד תמוז", "כ\"ה תמוז", "כ\"ו תמוז", "כ\"ז תמוז", "כ\"ח תמוז", "כ\"ט תמוז",
+            "א' אב", "ב' אב", "ג' אב", "ד' אב", "ה' אב", "ו' אב", "ז' אב", "ח' אב", "ט' אב", "י' אב", "י\"א אב"
+        ]
 
 
         document.querySelectorAll('.date').forEach((card, index) => {
